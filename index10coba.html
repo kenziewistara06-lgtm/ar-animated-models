@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AR Animated Models – A-Frame</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+      <!-- Asset Management System -->
+      <a-assets>
+        <a-asset-item id="city" src="./assets/city/scene.gltf"></a-asset-item>
+        <a-asset-item id="dragon" src="./assets/dragon/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- City GLTF model -->
+      <a-entity
+        gltf-model="#city"
+        scale="0.0005 0.0005 0.0005"
+        position=".07 1 -.5"
+        rotation="0 -90 0">
+      </a-entity>
+
+      <!-- Dragon GLTF model (Animated) -->
+      <a-entity
+        gltf-model="#dragon"
+        position="0.5 1.02 -0.7"
+        rotation="0 270 0"
+        scale="1 1 1"
+        animation-mixer>
+      </a-entity>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #ffffff"></a-entity>
+      <a-entity light="type: directional; intensity: 0.8" position="1 1 0"></a-entity>
+
+      <!-- Camera -->
+      <a-entity camera look-controls wasd-controls></a-entity>
+    </a-scene>
+  </body>
+</html>
